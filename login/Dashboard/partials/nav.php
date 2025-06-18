@@ -3,7 +3,7 @@
       SISTEMA DE INVENTARIO MINIRED
     </div>
     <div class="user-info">
-      <img src="http://localhost/VENTAS/app/views/fotos/default.png" alt="Admin" class="img-fluid rounded-circle mb-2" width="80">
+      <img src="../imagenes/default.png" alt="Admin" class="img-fluid rounded-circle mb-2" width="80">
       <div><strong>Administrador</strong></div>
       <div style="font-size: 0.8em;">Administrador</div>
     </div>

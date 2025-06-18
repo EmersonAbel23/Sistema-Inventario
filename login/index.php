@@ -112,7 +112,7 @@ include("modelo/conexion.php");
    <!-- Modal de Recuperación de Contraseña -->
    <div class="modal fade" id="recuperarModal" tabindex="-1" role="dialog" aria-labelledby="recuperarModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
-         <form method="POST" action="#" class="modal-content">
+         <form method="POST" action="controlador/enviar_token.php" class="modal-content">
             <div class="modal-header">
                <h5 class="modal-title" id="recuperarModalLabel">Recuperar Contraseña</h5>
                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
