@@ -1,49 +1,56 @@
 <?php
-include '../modelo/conexion.php'; // Asegúrate de que $conexion sea válido
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (
-        !empty($_POST["nombre"]) &&
-        !empty($_POST["apellido"]) &&
-        !empty($_POST["correo"]) &&
-        !empty($_POST["password"])
-    ) {
-        $nombre = trim($_POST["nombre"]);
-        $apellido = trim($_POST["apellido"]);
-        $correo = trim($_POST["correo"]);
-        $password = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT);
+include '../modelo/conexion.php';
 
-        // Verificar si ya existe el correo
-        $stmt = $conexion->prepare("SELECT id FROM usuario WHERE correo = ?");
-        if (!$stmt) {
-            die("Error en prepare (verificar nombre de columna 'correo'): " . $conexion->error);
-        }
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   
+    $nombre    = trim($_POST['nombre']);
+    $apellido  = trim($_POST['apellido']);
+    $correo    = trim($_POST['correo']); 
+    $password  = trim($_POST['password']);
 
-        $stmt->bind_param("s", $correo);
-        $stmt->execute();
-        $stmt->store_result();
+    
+    if (empty($nombre) || empty($apellido) || empty($correo) || empty($password)) {
+        echo "Todos los campos son obligatorios.";
+        exit;
+    }
 
-        if ($stmt->num_rows > 0) {
-            echo "<script>alert('El correo ya está registrado'); window.history.back();</script>";
+    
+    $check = $conexion->prepare("SELECT id FROM usuario WHERE user = ?");
+    $check->bind_param("s", $correo);
+    $check->execute();
+    $check->store_result();
+    
+    if ($check->num_rows > 0) {
+        echo "Este correo ya está registrado.";
+        $check->close();
+        exit;
+    }
+    $check->close();
+
+ 
+  
+
+  
+    $sql = "INSERT INTO usuario (user, password, nombre, apellido) VALUES (?, ?, ?, ?)";
+    $stmt = $conexion->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param("ssss", $correo, $password, $nombre, $apellido);
+
+        if ($stmt->execute()) {
+            header("Location: ../index.php");
         } else {
-            // Insertar nuevo usuario
-            $stmt = $conexion->prepare("INSERT INTO usuario (nombre, apellido, correo, password) VALUES (?, ?, ?, ?)");
-            if (!$stmt) {
-                die("Error en prepare (insert): " . $conexion->error);
-            }
-
-            $stmt->bind_param("ssss", $nombre, $apellido, $correo, $password);
-            if ($stmt->execute()) {
-                echo "<script>alert('Usuario registrado correctamente'); window.location='../index.php';</script>";
-            } else {
-                echo "<script>alert('Error al registrar usuario'); window.history.back();</script>";
-            }
+            echo "Error al registrar: " . $stmt->error;
         }
 
         $stmt->close();
-        $conexion->close();
     } else {
-        echo "<script>alert('Todos los campos son obligatorios'); window.history.back();</script>";
+        echo "Error en la preparación del SQL.";
     }
+
+    $conexion->close();
+} else {
+    echo "Acceso no permitido.";
 }
 ?>

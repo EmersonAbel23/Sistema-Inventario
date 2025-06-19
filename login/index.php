@@ -27,6 +27,7 @@ include("modelo/conexion.php");
          <form method="post" action="">
             <img src="img/avatar.svg">
             <h2 class="title">BIENVENIDO</h2>
+   
 
             <?php 
             include("controlador/controlador_login.php");
@@ -81,6 +82,7 @@ include("modelo/conexion.php");
             </div>
             
             <div class="modal-body">
+               
                   <div class="form-group">
                      <label for="nombre">Nombre</label>
                      <input type="text" class="form-control" name="nombre" required>
@@ -108,6 +110,7 @@ include("modelo/conexion.php");
          </form>
       </div>
    </div>
+
 
    <!-- Modal de Recuperación de Contraseña -->
    <div class="modal fade" id="recuperarModal" tabindex="-1" role="dialog" aria-labelledby="recuperarModalLabel" aria-hidden="true">
