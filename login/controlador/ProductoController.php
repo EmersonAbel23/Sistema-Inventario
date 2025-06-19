@@ -13,8 +13,33 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["accion"])) {
         case "actualizar":
             actualizarProducto($conexion);
             break;
+        case "eliminar":
+            desactivarProducto($conexion);
+            break;
     }
 }
+
+function desactivarProducto($conexion) {
+    $id_producto = $_POST["id_producto"];
+
+    $stmt = $conexion->prepare("UPDATE producto SET estado = 0 WHERE id = ?");
+    if (!$stmt) {
+        die("Error al preparar la desactivación: " . $conexion->error);
+    }
+
+    $stmt->bind_param("i", $id_producto);
+
+    if ($stmt->execute()) {
+        header("Location: ../Dashboard/lista_producto.php?desactivado=1");
+        exit;
+    } else {
+        echo "Error al desactivar el producto: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+
 function agregarProducto($conexion) {
     $nombre = $_POST["nombre"];
     $precio = $_POST["precio"];

@@ -92,7 +92,7 @@
                   </button>
                 </td>';
 
-          echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id_categoria'] . '"><i class="fas fa-trash"></i></button></td>';
+          echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id'] . '"><i class="fas fa-trash"></i></button></td>';
 
           echo "</tr>";
       }
@@ -202,17 +202,17 @@
 
 
 <!-- Modal de Confirmación para Eliminar -->
-<div class="modal fade" id="modalEliminarCategoria" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminarProducto" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="../controlador/CategoriaController.php" method="POST">
+      <form action="../controlador/ProductoController.php" method="POST">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalEliminarLabel">¿Eliminar categoría?</h5>
+          <h5 class="modal-title" id="modalEliminarLabel">¿Eliminar Producto?</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="id_categoria" id="eliminar_id_categoria">
-          <p>¿Estás seguro de que deseas eliminar esta categoría?</p>
+          <input type="hidden" name="id_producto" id="eliminar_id_producto">
+          <p>¿Estás seguro de que deseas eliminar este producto?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -264,6 +264,18 @@ function cargarDatosProducto(producto) {
 }
 </script>
 
+<script>
+  // Mostrar modal con datos al hacer clic en eliminar
+  document.querySelectorAll(".btn-eliminar").forEach(btn => {
+    btn.addEventListener("click", function () {
+      const id = this.dataset.id;
+      document.getElementById("eliminar_id_producto").value = id;
+
+      const modalEliminar = new bootstrap.Modal(document.getElementById('modalEliminarProducto'));
+      modalEliminar.show();
+    });
+  });
+</script>
 
 
 

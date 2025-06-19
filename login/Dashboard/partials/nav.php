@@ -4,7 +4,12 @@
     </div>
     <div class="user-info">
       <img src="../imagenes/default.png" alt="Admin" class="img-fluid rounded-circle mb-2" width="80">
-      <div><strong>Administrador</strong></div>
+      <?php
+      session_start();
+      $nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Usuario';
+      $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+      ?>
+      <div><strong><?php echo $nombre . ' ' . $apellido; ?></strong></div>
       <div style="font-size: 0.8em;">Administrador</div>
     </div>
 
