@@ -87,6 +87,15 @@
         </div>
       </div>
 
+   <!-- Usuarios -->
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="summary-box">
+          <i class="fas fa-user me-2"></i>
+          <div class="summary-title">Usuarios</div>
+          <div class="summary-number"><?= contarRegistros('usuario') ?></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </div>

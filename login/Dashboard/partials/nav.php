@@ -76,6 +76,18 @@
         </ul>
       </li>
 
+        <!-- Usuario -->
+        <li class="nav-item">
+          <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#usuarioSubmenu">
+            <span><i class="fas fa-user me-2"></i> Usuario</span>
+            <i class="fas fa-chevron-down rotate-icon"></i>
+          </a>
+          <ul class="collapse list-unstyled submenu" id="usuarioSubmenu">
+            <li><a class="nav-link" href="lista_usuario.php">Lista de usuarios</a></li>
+          </ul>
+        </li>
+
+
       <li class="nav-item">
         <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#entradasSubmenu">
           <span><i class="fas fa-arrow-down me-2"></i> Entradas</span>

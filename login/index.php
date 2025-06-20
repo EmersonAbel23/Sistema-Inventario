@@ -102,6 +102,7 @@ include("modelo/conexion.php");
                   <label for="password">Contraseña</label>
                   <input type="password" class="form-control" name="password" required>
                </div>
+               
             </div>
             <div class="modal-footer">
                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
