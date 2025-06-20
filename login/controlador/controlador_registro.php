@@ -28,9 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     $check->close();
 
- 
-  
-
   
     $sql = "INSERT INTO usuario (user, password, nombre, apellido) VALUES (?, ?, ?, ?)";
     $stmt = $conexion->prepare($sql);
