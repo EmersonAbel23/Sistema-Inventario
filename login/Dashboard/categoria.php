@@ -104,7 +104,7 @@
     // Enviar el formulario después de 1.5 segundos
     setTimeout(() => {
       document.getElementById("formCategoria").submit();
-    }, 1500);
+    }, 1800);
   }
 </script>
 </body>

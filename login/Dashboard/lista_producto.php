@@ -97,7 +97,7 @@
           echo "</tr>";
       }
   } else {
-      echo "<tr><td colspan='6'>No se encontraron categorías.</td></tr>";
+      echo "<tr><td colspan='6'>No se encontraron producto.</td></tr>";
   }
 
   $conexion->close();

@@ -66,7 +66,7 @@ if ($resultado && $resultado->num_rows > 0) {
         echo "</tr>";
     }
 } else {
-    echo "<tr><td colspan='6'>No se encontraron categorías.</td></tr>";
+    echo "<tr><td colspan='6'>No se encontraron usuarios.</td></tr>";
 }
 
 $conexion->close();
@@ -97,45 +97,96 @@ $conexion->close();
 <div class="modal fade" id="modalActualizarCategoria" tabindex="-1" aria-labelledby="modalActualizarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="../controlador/CategoriaController.php" method="POST">
+      <form  id="formUsuario" action="../controlador/UsuarioController.php" method="POST">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalActualizarLabel">Actualizar Categoría</h5>
+          <h5 class="modal-title" id="modalActualizarLabel">Actualizar Usuario</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="id_categoria" id="editar_id_categoria">
+          <input type="hidden" name="id" id="editar_id_usuario">
           <div class="mb-3">
-            <label for="editar_nombre_categoria" class="form-label">Nombre</label>
-            <input type="text" class="form-control" name="nombre_categoria" id="editar_nombre_categoria" required>
+            <label for="editar_nombre_usuario" class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="editar_nombre_usuario" required>
           </div>
           <div class="mb-3">
-            <label for="editar_descripcion_categoria" class="form-label">Descripción</label>
-            <textarea class="form-control" name="descripcion_categoria" id="editar_descripcion_categoria" rows="3"></textarea>
+            <label for="editar_apellido_usuario" class="form-label">Apellido</label>
+            <input type="text" class="form-control" name="apellido" id="editar_apellido_usuario" required>
+          </div>
+          <div class="mb-3">
+            <label for="editar_correo_usuario" class="form-label">Correo</label>
+            <input type="text" class="form-control" name="correo" id="editar_correo_usuario" required>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" name="accion" value="actualizar" class="btn btn-primary">Guardar cambios</button>
+          <input type="hidden" name="accion" value="actualizar">
+          <button type="button" class="btn btn-primary" onclick="abrirConfirmacion()">Guardar cambios</button>
+
         </div>
       </form>
     </div>
   </div>
 </div>
 
+<div class="modal fade" id="modalConfirmarActualizacion" tabindex="-1" aria-labelledby="confirmarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <i class="fas fa-question-circle fa-3x text-warning mb-3"></i>
+        <h5 class="modal-title mb-2" id="confirmarLabel">¿Confirmar actualización?</h5>
+        <p class="text-muted">¿Estás seguro de que deseas actualizar este usuario?</p>
+        <div class="d-flex justify-content-center gap-3">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="enviarFormulario()">Sí, actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function abrirConfirmacion() {
+  const modalEditar = bootstrap.Modal.getInstance(document.getElementById('modalActualizarCategoria'));
+  if (modalEditar) {
+    modalEditar.hide();
+  }
+
+  setTimeout(() => {
+    const modalConfirmar = new bootstrap.Modal(document.getElementById('modalConfirmarActualizacion'));
+    modalConfirmar.show();
+  }, 400);
+}
 
 
+function enviarFormulario() {
+  const modalConfirmar = bootstrap.Modal.getInstance(document.getElementById('modalConfirmarActualizacion'));
+  if (modalConfirmar) {
+    modalConfirmar.hide();
+  }
+
+
+  setTimeout(() => {
+    const form = document.getElementById("formUsuario");
+    if (form) {
+      form.submit();
+    } else {
+      console.error("Formulario no encontrado: id='formUsuario'");
+    }
+  }, 300);
+}
+</script>
 
 <!-- Modal de Confirmación para Eliminar -->
-<div class="modal fade" id="modalEliminarCategoria" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+<div class="modal fade" id="modalEliminarUsuario" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form action="../controlador/CategoriaController.php" method="POST">
+      <form action="../controlador/UsuarioController.php" method="POST">
         <div class="modal-header">
-          <h5 class="modal-title" id="modalEliminarLabel">¿Eliminar categoría?</h5>
+          <h5 class="modal-title" id="modalEliminarLabel">¿Eliminar usuario?</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
         <div class="modal-body">
-          <input type="hidden" name="id_categoria" id="eliminar_id_categoria">
-          <p>¿Estás seguro de que deseas eliminar esta categoría?</p>
+          <input type="hidden" name="id_usuario" id="eliminar_id_usuario">
+          <p>¿Estás seguro de que deseas eliminar esta usuario?</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -148,16 +199,21 @@ $conexion->close();
 
 
 <script>
+  // para actualizar el usuarios
   document.querySelectorAll(".btn-actualizar").forEach(btn => {
     btn.addEventListener("click", function () {
       const fila = this.closest("tr");
       const id = this.dataset.id;
       const nombre = fila.cells[1].textContent;
-      const descripcion = fila.cells[2].textContent;
+      const apellido = fila.cells[2].textContent;
+      //editar_correo_usuario
+      const correo = fila.cells[3].textContent;
 
-      document.getElementById("editar_id_categoria").value = id;
-      document.getElementById("editar_nombre_categoria").value = nombre;
-      document.getElementById("editar_descripcion_categoria").value = descripcion;
+
+      document.getElementById("editar_id_usuario").value = id;
+      document.getElementById("editar_nombre_usuario").value = nombre;
+      document.getElementById("editar_apellido_usuario").value = apellido;
+      document.getElementById("editar_correo_usuario").value = correo;
 
       new bootstrap.Modal(document.getElementById('modalActualizarCategoria')).show();
     });
@@ -166,10 +222,12 @@ $conexion->close();
   document.querySelectorAll(".btn-eliminar").forEach(btn => {
   btn.addEventListener("click", function () {
     const id = this.dataset.id;
-    document.getElementById("eliminar_id_categoria").value = id;
-    new bootstrap.Modal(document.getElementById('modalEliminarCategoria')).show();
+    document.getElementById("eliminar_id_usuario").value = id;
+    new bootstrap.Modal(document.getElementById('modalEliminarUsuario')).show();
   });
 });
+
+
 
 </script>
 
