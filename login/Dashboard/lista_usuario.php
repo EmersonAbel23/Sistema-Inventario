@@ -60,8 +60,8 @@ if ($resultado && $resultado->num_rows > 0) {
         echo "<td>" . htmlspecialchars($fila['apellido']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['user']) . "</td>";
         //echo '<td><button class="btn btn-primary btn-sm"><i class="fas fa-boxes-stacked"></i></button></td>';
-        //echo '<td><button class="btn btn-success btn-sm btn-actualizar" data-id="' . $fila['id_user'] . '"><i class="fas fa-rotate"></i></button></td>';
-       // echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id_user'] . '"><i class="fas fa-trash"></i></button></td>';
+        echo '<td><button class="btn btn-success btn-sm btn-actualizar" data-id="' . $fila['id'] . '"><i class="fas fa-rotate"></i></button></td>';
+       echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id'] . '"><i class="fas fa-trash"></i></button></td>';
 
         echo "</tr>";
     }
