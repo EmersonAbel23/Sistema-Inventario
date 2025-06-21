@@ -17,7 +17,7 @@
 
 <div class="content">
     
-<?php require("./partials/topbar.php") ?>
+
     <br>
   <!-- Contenedor centrado -->
   <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
@@ -62,8 +62,8 @@
               <input type="text" class="form-control" placeholder="Ciudad">
             </div>
             <div class="col-md-6">
-              <label class="form-label">Código postal</label>
-              <input type="text" class="form-control" placeholder="12345">
+              <label class="form-label">Edad</label>
+              <input type="text" class="form-control" placeholder="50">
             </div>
           </div>
 
