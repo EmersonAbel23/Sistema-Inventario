@@ -16,9 +16,7 @@
 </div>
 
 <div class="content">
-  <div class="header-bar">
-   Lista de Usuario
-  </div>
+ <?php require("./partials/topbar.php") ?>
   
 
   <div class="container mt-5">

@@ -15,8 +15,8 @@
 </div>
 
 <div class="content">
-  <div class="header-bar">Producto</div>
-
+  <?php require("./partials/topbar.php") ?>
+  
   <div class="container mt-5">
     <h3 class="mb-4"><i class="fas fa-box me-2"></i> Nuevo Producto</h3>
 

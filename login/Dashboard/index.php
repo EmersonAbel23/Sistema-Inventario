@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -15,9 +16,10 @@
 </div>
 
 <div class="content">
-  <div class="header-bar">
-    Inicio
-  </div>
+    
+<?php require("./partials/topbar.php") ?>
+
+
   <div class="page-content">
     <h5>¡Bienvenido al sistema de inventario!</h5>
     <div class="row mt-4 g-4">
