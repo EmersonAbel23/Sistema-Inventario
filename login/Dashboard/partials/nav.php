@@ -5,7 +5,10 @@
     <div class="user-info">
       <img src="../imagenes/default.png" alt="Admin" class="img-fluid rounded-circle mb-2" width="80">
       <?php
-      session_start();
+      if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Solo se ejecuta si la sesión aún no ha iniciado
+      }
+
       $nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Usuario';
       $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
       ?>

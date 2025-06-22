@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,6 +12,7 @@
 </head>
 <body>
 
+<?php   require ("./partials/modalConfirmacion.php") ?>
 <div class="sidebar d-flex flex-column">
   <!-- extrayendo todo el estilo   -->
  <?php   require ("./partials/nav.php") ?>
@@ -44,6 +46,7 @@
           <th>Nombre</th>
           <th>Apellido</th>
           <th>user</th>
+          <th>Rol</th>
           <th>Actualizar</th>
           <th>Eliminar</th>
         </tr>
@@ -53,7 +56,15 @@
       <?php
 require_once "../modelo/conexion.php";
 
-$sql = "SELECT * FROM usuario WHERE estado = 1";
+
+// Obtener roles
+$sql = "SELECT usuario.*, rol.nombre AS nombre_rol 
+        FROM usuario 
+        INNER JOIN rol ON usuario.id_rol = rol.id 
+        WHERE usuario.estado = 1";
+
+
+//$sql = "SELECT * FROM usuario WHERE estado = 1";
 $resultado = $conexion->query($sql);
 $contador = 1;
 
@@ -64,6 +75,7 @@ if ($resultado && $resultado->num_rows > 0) {
         echo "<td>" . htmlspecialchars($fila['nombre']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['apellido']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['user']) . "</td>";
+        echo "<td>" . htmlspecialchars($fila['nombre_rol']) . "</td>";
         //echo '<td><button class="btn btn-primary btn-sm"><i class="fas fa-boxes-stacked"></i></button></td>';
         echo '<td><button class="btn btn-success btn-sm btn-actualizar" data-id="' . $fila['id'] . '"><i class="fas fa-rotate"></i></button></td>';
        echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id'] . '"><i class="fas fa-trash"></i></button></td>';
