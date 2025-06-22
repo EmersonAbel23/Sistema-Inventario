@@ -80,6 +80,7 @@
 
       <!-- Marcas -->
       <div class="col-sm-6 col-md-4 col-lg-3">
+      <!-- <a href="../Dashboard/lista_marca.php" style="text-decoration: none; color: inherit;"> -->
         <div class="summary-box">
           <i class="fas fa-trademark"></i>
           <div class="summary-title">Marcas</div>

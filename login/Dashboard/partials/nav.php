@@ -52,7 +52,7 @@
           <i class="fas fa-chevron-down rotate-icon"></i>
         </a>
         <ul class="collapse list-unstyled submenu" id="marcasSubmenu">
-          <li><a class="nav-link" href="#">Registrar marca</a></li>
+          <li><a class="nav-link" href="marca.php">Registrar marca</a></li>
           <li><a class="nav-link" href="#">Lista de marcas</a></li>
         </ul>
       </li>
