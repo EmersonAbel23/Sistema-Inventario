@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="../bootstrap/fontawesome/css/all.min.css">
   <link rel="stylesheet" href="dasboard.css">
+  <link rel="shortcut icon" href="../img/logotipoMinired.JPG" type="image/x-icon">
 </head>
 <body>
 
