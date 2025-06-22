@@ -110,6 +110,7 @@ $conexion->close();
   </div>
 </div>
 
+
 <!-- Modal de Actualización -->
 <div class="modal fade" id="modalActualizarCategoria" tabindex="-1" aria-labelledby="modalActualizarLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -133,6 +134,8 @@ $conexion->close();
             <label for="editar_correo_usuario" class="form-label">Correo</label>
             <input type="text" class="form-control" name="correo" id="editar_correo_usuario" required>
           </div>
+          
+
         </div>
         <div class="modal-footer">
           <input type="hidden" name="accion" value="actualizar">
