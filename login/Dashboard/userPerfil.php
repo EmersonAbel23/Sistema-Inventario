@@ -11,11 +11,19 @@
 </head>
 <body>
 
+
 <div class="sidebar d-flex flex-column">
   <?php require("./partials/nav.php") ?>
 </div>
 
 <div class="content">
+    <div class="d-flex justify-content-between align-items-center px-4 py-3"style="background-color: #343a40; color: white;">
+    <div>
+      <h4 class="mb-0">Perfil</h4>
+    </div>
+    <?php require("./partials/topbar.php") ?>
+  </div>
+</div>
   <br>
 
   <!-- Contenedor centrado -->
@@ -79,10 +87,10 @@
             </div>
           </div>
 
-          <!-- <div class="d-flex justify-content-end gap-2">
+           <div class="d-flex justify-content-end gap-2">
             <button type="submit" class="btn btn-success">Guardar Perfil</button>
             <button type="reset" class="btn btn-secondary">Cancelar</button>
-          </div> -->
+          </div> 
         </form>
       </div>
     </div>

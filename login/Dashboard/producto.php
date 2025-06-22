@@ -17,9 +17,9 @@
 
 <div class="content">
  <div class="d-flex justify-content-between align-items-center px-4 py-3"style="background-color: #343a40; color: white;">
-  <div>
-     <h4 class="mb-0">Producto</h4>
-  </div>
+    <div>
+      <h4 class="mb-0">Producto</h4>
+    </div>
     <?php require("./partials/topbar.php") ?>
   </div>
 </div>

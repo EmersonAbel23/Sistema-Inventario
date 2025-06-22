@@ -267,7 +267,9 @@ document.getElementById("buscador").addEventListener("keyup", function () {
 
   filas.forEach(fila => {
     let nombre = fila.cells[1].textContent.toLowerCase();
+    let correo = fila.cells[3].textContent.toLowerCase();
     fila.style.display = nombre.includes(filtro) ? "" : "none";
+    fila.style.display = correo.includes(filtro) ? "" : "none";
   });
 });
 </script>
