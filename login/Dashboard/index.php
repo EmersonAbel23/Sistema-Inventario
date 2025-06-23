@@ -74,7 +74,7 @@
         <div class="summary-box">
           <i class="fas fa-layer-group"></i>
           <div class="summary-title">Rubros</div>
-          <div class="summary-number"><?= contarRegistros('categoria') ?></div>
+          <div class="summary-number"><?= contarRegistros('rubro') ?></div>
         </div>
       </div>
 

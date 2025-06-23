@@ -1,13 +1,13 @@
 <?php
 require_once "../modelo/conexion.php"; 
 
-function agregarCategoria($conexion, $nombre, $descripcion) {
-    $stmt = $conexion->prepare("INSERT INTO categoria (nombre_categoria, descripcion_categoria) VALUES (?, ?)");
+function agregarCategoria($conexion, $nombre, $descripcion, $id_rubro) {
+    $stmt = $conexion->prepare("INSERT INTO categoria (nombre_categoria, descripcion_categoria, id_rubro) VALUES (?, ?, ?)");
     if (!$stmt) {
         return "Error en la preparación de la consulta: " . $conexion->error;
     }
 
-    $stmt->bind_param("ss", $nombre, $descripcion);
+    $stmt->bind_param("ssi", $nombre, $descripcion, $id_rubro);
 
     if ($stmt->execute()) {
         $stmt->close();
@@ -78,12 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     } elseif ($accion === "agregar") {
         $nombre = trim($_POST["nombre_categoria"]);
         $descripcion = trim($_POST["descripcion_categoria"]);
+        $id_rubro = trim($_POST["id_rubro"]); 
         if (empty($nombre)) {
             echo "El nombre de la categoría es obligatorio.";
             exit;
         }
 
-        $resultado = agregarCategoria($conexion, $nombre, $descripcion);
+        $resultado = agregarCategoria($conexion, $nombre, $descripcion , $id_rubro);
         $redireccion = "../Dashboard/categoria.php";
         
     } else {

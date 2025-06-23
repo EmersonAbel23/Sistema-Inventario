@@ -42,17 +42,40 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
         </div>
       <?php endif; ?>
-
-  <form method="POST" action="../controlador/CategoriaController.php" onsubmit="guardarCategoria(event)" id="formCategoria">
+<form method="POST" action="../controlador/CategoriaController.php" onsubmit="guardarCategoria(event)" id="formCategoria">
   <input type="hidden" name="accion" value="agregar"> 
+  
   <div class="row mb-4">
     <div class="col-md-6">
-      <label class="form-label fw-bold">Nombre <i class="fas fa-pen-to-square small"></i></label>
-      <input type="text" class="form-control" name="nombre_categoria" required>
+      <label class="form-label fw-bold">
+        Nombre <i class="fas fa-pen-to-square small text-danger"></i>
+      </label>
+      <input type="text" class="form-control" name="nombre_categoria" placeholder="Ingrese el nombre" required>
     </div>
+
     <div class="col-md-6">
       <label class="form-label fw-bold">Descripción</label>
-      <input type="text" class="form-control" name="descripcion_categoria">
+      <input type="text" class="form-control" name="descripcion_categoria" placeholder="Descripción opcional">
+    </div>
+  </div>
+
+  <?php
+    require_once "../modelo/conexion.php";
+    $sqlProveedores = "SELECT id_rubro, nombre_rubro FROM rubro";
+    $resultadoProveedores = $conexion->query($sqlProveedores);
+  ?>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <label class="form-label fw-bold">Rubro <i class="fas fa-briefcase text-secondary small"></i></label>
+      <select class="form-select" name="id_rubro" required>
+        <option value="">Selecciona un Rubro</option>
+        <?php while ($fila = $resultadoProveedores->fetch_assoc()): ?>
+          <option value="<?= $fila['id_rubro'] ?>">
+            <?= htmlspecialchars($fila['nombre_rubro']) ?>
+          </option>
+        <?php endwhile; ?>
+      </select>
     </div>
   </div>
 
@@ -66,9 +89,10 @@
   </div>
 
   <div class="text-muted mt-3 text-center">
-    <small>Los campos marcados con <i class="fas fa-pen-to-square small"></i> son obligatorios</small>
+    <small>Los campos marcados con <i class="fas fa-pen-to-square small text-danger"></i> son obligatorios</small>
   </div>
 </form>
+
 
     </div>
   </div>

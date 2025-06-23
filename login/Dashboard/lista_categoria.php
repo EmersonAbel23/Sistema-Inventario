@@ -41,6 +41,7 @@
       <thead class="table-light">
         <tr>
           <th>#</th>
+          <th>Rubro</th>
           <th>Nombre</th>
           <th>Descripción</th>
           <th>Productos</th>
@@ -53,7 +54,10 @@
       <?php
 require_once "../modelo/conexion.php";
 
-$sql = "SELECT * FROM categoria WHERE estado = 1";
+$sql = "SELECT categoria.*, rubro.nombre_rubro 
+FROM categoria 
+INNER JOIN rubro ON categoria.id_rubro = rubro.id_rubro 
+WHERE categoria.estado = 1";
 $resultado = $conexion->query($sql);
 $contador = 1;
 
@@ -61,6 +65,7 @@ if ($resultado && $resultado->num_rows > 0) {
     while ($fila = $resultado->fetch_assoc()) {
         echo "<tr>";
         echo "<td>" . $contador++ . "</td>";
+        echo "<td>" . htmlspecialchars($fila['nombre_rubro']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['nombre_categoria']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['descripcion_categoria']) . "</td>";
         echo '<td><button class="btn btn-primary btn-sm"><i class="fas fa-boxes-stacked"></i></button></td>';
