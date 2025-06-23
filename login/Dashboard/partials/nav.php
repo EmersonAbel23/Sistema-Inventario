@@ -74,7 +74,7 @@
           <i class="fas fa-chevron-down rotate-icon"></i>
         </a>
         <ul class="collapse list-unstyled submenu" id="rubrosSubmenu">
-          <li><a class="nav-link" href="#">Registrar rubro</a></li>
+          <li><a class="nav-link" href="rubro.php">Registrar rubro</a></li>
           <li><a class="nav-link" href="#">Lista de rubros</a></li>
         </ul>
       </li>
