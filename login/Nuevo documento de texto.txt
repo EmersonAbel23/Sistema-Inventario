@@ -1,0 +1,85 @@
+🪜 PASO A PASO PARA CREAR UNA CONTRASEÑA DE APLICACIÓN EN GMAIL
+🔹 Paso 1: Activa la verificación en dos pasos
+Ve a 👉 https://myaccount.google.com/security
+
+Inicia sesión si te lo pide.
+
+Busca la sección "Iniciar sesión en Google".
+
+Activa Verificación en dos pasos (si aún no está activada).
+
+Sigue los pasos (te pedirá tu celular y verificación por SMS o Google Authenticator).
+
+🔹 Paso 2: Crea la contraseña de aplicación
+Después de activar la verificación en dos pasos, regresa a https://myaccount.google.com/security
+
+Ve a la sección "Contraseñas de aplicaciones" (solo aparece si tienes activada la verificación en dos pasos).
+
+O puedes ir directamente a 👉 https://myaccount.google.com/apppasswords
+
+Google te pedirá que confirmes tu contraseña de cuenta.
+
+En el menú:
+
+En “Seleccionar la aplicación”, elige "Otro (nombre personalizado)"
+
+Escribe por ejemplo: Sistema Inventario
+
+Luego haz clic en GENERAR.
+
+🔹 Paso 3: Copia tu contraseña de aplicación
+Google te mostrará una contraseña de 16 caracteres como esta:
+
+nginx
+Copiar
+Editar
+abcd efgh ijkl mnop
+Cópiala y guárdala en un lugar seguro (o pégala directamente en tu código PHP):
+
+php
+Copiar
+Editar
+$mail->Username = 'tucorreo@gmail.com'; // tu correo Gmail
+$mail->Password = 'abcd efgh ijkl mnop'; // ← aquí pega tu contraseña de aplicación
+⚠️ No uses espacios en el código, escríbelo seguido:
+
+php
+Copiar
+Editar
+$mail->Password = 'abcdefghijklmnop';
+🟢 Paso 4: ¡Listo! Ya puedes enviar correos
+¿Te gustaría que te ayude a probarlo ahora mismo o pasamos al siguiente archivo restablecer.php?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- Rubro: Snacks (id_rubro = 4)
+('Galletas', 'Galletas dulces, saladas, rellenas.', 4, 1),
+('Chocolates', 'Tabletas, bombones, chocolates con maní.', 4, 1),
+('Papas Fritas', 'Snacks salados en bolsa.', 4, 1);
+
+NSERT INTO producto (nombre, precio, foto, stock, descripcion, codigo_prod, estado, id_proveedor, id_categoria) VALUES
+('Aceite Vegetal Primor 1L', 9.50, 'aceite_primor.jpg', 50, 'Aceite vegetal ideal para cocinar y freír.', 'PRD001', 1, 1, 2),
+('Leche Gloria Evaporada 400ml', 4.20, 'leche_gloria.jpg', 100, 'Leche evaporada entera ideal para desayuno.', 'PRD002', 1, 4, 3),
+('Arroz Costeño 5kg', 18.90, 'arroz_costeno.jpg', 75, 'Arroz superior tipo extra, grano largo.', 'PRD003', 1, 2, 1),
+('Gaseosa Inca Kola 2.25L', 6.80, 'inca_kola.jpg', 60, 'Bebida gaseosa sabor nacional.', 'PRD004', 1, 3, 4),
+('Panetón D’Onofrio 900g', 19.50, 'paneton_donofrio.jpg', 40, 'Clásico panetón con pasas y frutas confitadas.', 'PRD005', 1, 5, 5);
+
+
+
+
+
+
+
+
+

@@ -68,12 +68,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         $id = intval($_POST["id_rubro"]);
         $resultado = actualizarRubro($conexion, $id, $nombre, $descripcion);
-        $redireccion = "../Dashboard/lista_rubro.php";
+        $redireccion = "../Dashboard/listar_rubro.php";
 
     } elseif ($accion === "eliminar") {
         $id = intval($_POST["id_rubro"]);
         $resultado = desactivarRubro($conexion, $id);
-        $redireccion = "../Dashboard/lista_rubro.php";
+        $redireccion = "../Dashboard/listar_rubro.php";
 
     } elseif ($accion === "agregar") {
         $nombre = trim($_POST["nombre_rubro"]);
