@@ -1,57 +1,76 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 require_once "../modelo/conexion.php";
-require '../PHPMailer/PHPMailerAutoload.php'; // Asegúrate de que este archivo existe
+require_once '../PHPMailer/src/PHPMailer.php';
+require_once '../PHPMailer/src/SMTP.php';
+require_once '../PHPMailer/src/Exception.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $correo = trim($_POST['correo_recuperar']);
 
-    // Verificamos si el correo existe
-    $stmt = $conexion->prepare("SELECT id FROM usuario WHERE user = ?");
+    // Buscar al usuario y su contraseña
+    $stmt = $conexion->prepare("SELECT password, nombre FROM usuario WHERE user = ?");
     $stmt->bind_param("s", $correo);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
     if ($resultado && $resultado->num_rows > 0) {
-        // Generar token seguro
-        $token = bin2hex(random_bytes(20));
+        $usuario = $resultado->fetch_assoc();
+        $contrasena = $usuario['password'];
+        $nombre = $usuario['nombre'];
 
-        // Guardarlo en la BD
-        $stmtUpdate = $conexion->prepare("UPDATE usuario SET token_recuperacion = ? WHERE user = ?");
-        $stmtUpdate->bind_param("ss", $token, $correo);
-        $stmtUpdate->execute();
+        // Enviar correo con la contraseña
+        $mail = new PHPMailer(true);
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'pruebaspruebanormal@gmail.com'; 
+            $mail->Password = 'jvhjirioaslbensb';              
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
 
-        // Enviar correo
-        $mail = new PHPMailer;
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';  // Servidor SMTP
-        $mail->SMTPAuth = true;
-        $mail->Username = 'tucorreo@gmail.com'; // Tu correo
-        $mail->Password = 'tu_contraseña';      // Tu contraseña o clave de app
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+            $mail->setFrom('pruebaspruebanormal@gmail.com', 'Sistema de Inventario');
+            $mail->addAddress($correo);
+            $mail->isHTML(true);
 
-        $mail->setFrom('tucorreo@gmail.com', 'Sistema de Inventario');
-        $mail->addAddress($correo);
-        $mail->isHTML(true);
+            $mail->Subject = 'Recuperación de contraseña';
+            $mail->Body = "
+                <p>Hola <strong>$nombre</strong>,</p>
+                <p>Tu contraseña actual es: <strong>$contrasena</strong></p>
+                <p>Te recomendamos cambiarla si no fuiste tú quien solicitó este mensaje.</p>
+            ";
 
-        $enlace = "http://localhost/Sistema-Inventario/login/restablecer.php?token=" . $token;
-
-        $mail->Subject = 'Recuperación de contraseña';
-        $mail->Body    = "Hola, haz clic en el siguiente enlace para restablecer tu contraseña:<br><br>
-                          <a href='$enlace'>$enlace</a>";
-
-        if ($mail->send()) {
-            echo "Correo enviado correctamente. Revisa tu bandeja de entrada.";
-        } else {
-            echo "Error al enviar el correo: " . $mail->ErrorInfo;
+            $mail->send();
+            // Mostrar mensaje y redireccionar
+            echo "<script>
+                    alert('✅ Tu contraseña fue enviada correctamente al correo.');
+                    window.location.href = '../index.php';
+                  </script>";
+            exit;
+        } catch (Exception $e) {
+            echo "<script>
+                    alert('❌ Error al enviar el correo: {$mail->ErrorInfo}');
+                    window.location.href = '../index.php';
+                  </script>";
+            exit;
         }
-
     } else {
-        echo "El correo no está registrado.";
+        echo "<script>
+                alert('❌ El correo ingresado no está registrado.');
+                window.location.href = '../index.php';
+              </script>";
+        exit;
     }
 
     $stmt->close();
     $conexion->close();
 } else {
-    echo "Acceso no permitido.";
+    echo "<script>
+            alert('Acceso no permitido.');
+            window.location.href = '../index.php';
+          </script>";
+    exit;
 }
