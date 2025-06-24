@@ -36,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $mail->addAddress($correo);
             $mail->isHTML(true);
 
-            $mail->Subject = 'Recuperación de contraseña';
+            $mail->Subject = 'Recuperación de contrasena';
             $mail->Body = "
                 <p>Hola <strong>$nombre</strong>,</p>
-                <p>Tu contraseña actual es: <strong>$contrasena</strong></p>
+                <p>Tu contrasena actual es: <strong>$contrasena</strong></p>
                 <p>Te recomendamos cambiarla si no fuiste tú quien solicitó este mensaje.</p>
             ";
 

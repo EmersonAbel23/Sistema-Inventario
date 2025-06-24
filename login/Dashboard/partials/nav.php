@@ -21,6 +21,18 @@
         <a href="index.php" class="nav-link"><i class="fas fa-home me-2"></i>Inicio</a>
       </li>
 
+      <!-- Rubros -->
+      <li class="nav-item">
+        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#rubrosSubmenu">
+          <span><i class="fas fa-layer-group me-2"></i> Rubros</span>
+          <i class="fas fa-chevron-down rotate-icon"></i>
+        </a>
+        <ul class="collapse list-unstyled submenu" id="rubrosSubmenu">
+          <li><a class="nav-link" href="rubro.php">Registrar rubro</a></li>
+          <li><a class="nav-link" href="#">Lista de rubros</a></li>
+        </ul>
+      </li>
+
       <!-- CATEGORÍAS -->
       <li class="nav-item">
         <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#categoriasSubmenu">
@@ -68,16 +80,7 @@
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#rubrosSubmenu">
-          <span><i class="fas fa-layer-group me-2"></i> Rubros</span>
-          <i class="fas fa-chevron-down rotate-icon"></i>
-        </a>
-        <ul class="collapse list-unstyled submenu" id="rubrosSubmenu">
-          <li><a class="nav-link" href="rubro.php">Registrar rubro</a></li>
-          <li><a class="nav-link" href="#">Lista de rubros</a></li>
-        </ul>
-      </li>
+
 
         <!-- Usuario -->
         <li class="nav-item">
