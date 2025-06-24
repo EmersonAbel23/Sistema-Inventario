@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2025 a las 08:46:20
+-- Tiempo de generación: 24-06-2025 a las 11:14:19
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -40,13 +40,15 @@ CREATE TABLE `categoria` (
 --
 
 INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`, `descripcion_categoria`, `estado`, `id_rubro`) VALUES
-(1, 'Lacteos', 'toda clase de lacteos de todas las marca', 1, 2),
-(3, 'Abarrotes', 'Toda clase de Abarrotes', 1, 2),
-(4, 'Gaseosas', 'Todo tipo de gaseosas', 1, 2),
-(5, 'chocolates', 'todo tipo de chocolate', 1, 2),
-(6, 'Galletas', 'toda clase de galletas', 1, 2),
-(18, 'Accesorios', 'de toda marcas', 1, 1),
-(25, 'Ropa', 'todo tipo de ropa', 1, NULL);
+(32, 'Gaseosa', 'Bebidas carbonatadas de diferentes sabores y marcas.', 1, 7),
+(33, 'Agua mineral', 'Agua embotellada con o sin gas.', 1, 7),
+(34, 'Leche', 'Leche entera, descremada, evaporada o deslactosada.', 1, 8),
+(35, 'Quesos', 'Variedades de queso fresco y maduro.', 1, 8),
+(36, 'Arroz', 'Diferentes tipos de arroz: extra, superior, integral.', 1, 9),
+(37, 'Fideos', 'Pastas cortas, largas, integrales.', 1, 9),
+(38, 'Detergente', 'Líquidos o en polvo para lavar ropa o vajilla', 1, 11),
+(39, 'Desinfectantes', 'Lejía, limpiadores multiusos, alcohol.', 1, 11),
+(40, 'Aceite', 'Aceites para cocina', 1, 9);
 
 -- --------------------------------------------------------
 
@@ -96,18 +98,7 @@ CREATE TABLE `producto` (
 --
 
 INSERT INTO `producto` (`id`, `nombre`, `precio`, `foto`, `stock`, `descripcion`, `codigo_prod`, `estado`, `id_proveedor`, `id_categoria`) VALUES
-(1, 'leche', 52, NULL, 5, 'leche pura vida en alta', '245784', NULL, 2, 6),
-(3, 'espiassssss', 20, NULL, 86, 'leche pura vida en alta', 'jghjghjghjghjghj', NULL, NULL, NULL),
-(16, 'Gaseosa Cola Plus 1.5L', 71, '1.jpg', 120, 'Gaseosa sabor cola de 1.5 litros', 'GAS001', 1, NULL, NULL),
-(17, 'talcos', 25, '1.jpg', 10, 'talco para ies', '00000124578', 1, NULL, NULL),
-(18, 'espias', 20, 'Captura.JPG', 86, 'leche pura vida en alta', 'jghjghjghjghjghj', 1, 1, 3),
-(19, 'laptop', 2000, 'xd.jpg', 4, 'laptop hp', '0001245787444', NULL, 3, 18),
-(20, 'celular', 250, 'wave.png', 50, 'toda marca de celulares', '124555782454', NULL, 1, 18),
-(21, 'desodorante', 15, '1.jpg', 50, 'xasxasxasxaxasxas', '1254789631251', NULL, 4, 1),
-(22, 'teclado', 45, 'avatar2.png', 40, 'sadasdasdasdsa', '12457963584', NULL, 1, 1),
-(23, 'polos manga larga', 20, 'Captura.JPG', 20, 'manga larga de nikes', '1254698563', NULL, 4, 25),
-(24, 'pantalon', 25, NULL, 20, 'pantalon hym', '02123065478', NULL, 3, 25),
-(25, 'maouse', 30, 'Captura.JPG', 45, 'mause gamer', '12456326978', 1, NULL, NULL);
+(26, 'Aceite Vegetal Primor 1L', 9, 'aceote.JPG', 50, 'Aceite vegetal ideal para cocinar y freír.', 'PRD001', 1, 7, 40);
 
 -- --------------------------------------------------------
 
@@ -128,12 +119,29 @@ CREATE TABLE `proveedor` (
 --
 
 INSERT INTO `proveedor` (`id_proveedor`, `nombre_proveedor`, `telefono`, `direccion`, `correo`) VALUES
-(1, 'TecnoPlus', '987654321', 'Av. Siempre Viva 123', 'contacto@tecnoplus.com'),
-(2, 'SnackManía', '912345678', 'Jr. Las Delicias 45', 'ventas@snackmania.pe'),
-(3, 'ModaFlex', '922334455', 'Calle Estilo 99', 'info@modaflex.com'),
-(4, 'CleanPeru', '933221100', 'Av. Higiene 777', 'clientes@cleanperu.com'),
-(5, 'Leche Gloria', '912699828', 'mx d lote 3 av lauis', 'leche@gloria.com'),
-(6, 'Refrescos Andinos', '987654321', 'Av. Central 123, Lima', 'ventas@refrescosandinos.com');
+(7, 'Distribuidora Santa Rosa', '987654321', 'Av. Universitaria 123, Lima', 'contacto@santarosa.com'),
+(8, 'Agro Perú S.A.C.', '945123789', 'Jr. Ayacucho 456, Arequipa', 'ventas@agroperu.com'),
+(9, 'Bebidas Andinas SRL', '934567821', 'Calle Cusco 890, Cusco', 'info@bebidasandinas.com'),
+(10, 'Lácteos Los Andes', '912345678', 'Av. Grau 220, Trujillo', 'lacteos@losandes.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `rol`
+--
+
+CREATE TABLE `rol` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `rol`
+--
+
+INSERT INTO `rol` (`id`, `nombre`) VALUES
+(1, 'admin'),
+(2, 'usuario');
 
 -- --------------------------------------------------------
 
@@ -143,18 +151,27 @@ INSERT INTO `proveedor` (`id_proveedor`, `nombre_proveedor`, `telefono`, `direcc
 
 CREATE TABLE `rubro` (
   `id_rubro` int(11) NOT NULL,
-  `nombre_rubro` varchar(100) NOT NULL
+  `nombre_rubro` varchar(100) NOT NULL,
+  `descripcion_rubro` varchar(255) DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `rubro`
 --
 
-INSERT INTO `rubro` (`id_rubro`, `nombre_rubro`) VALUES
-(1, 'Tecnología'),
-(2, 'Alimentos'),
-(3, 'Ropa'),
-(4, 'Limpieza');
+INSERT INTO `rubro` (`id_rubro`, `nombre_rubro`, `descripcion_rubro`, `estado`) VALUES
+(5, 'Comida', 'Comida', 1),
+(7, 'Bebidas', 'Productos líquidos como jugos, gaseosas, agua, energizantes, etc.', 1),
+(8, 'Lácteos', 'Productos derivados de la leche como yogurt, queso, leche, mantequilla.', 1),
+(9, 'Abarrotes', 'Productos secos como arroz, fideos, azúcar, menestras, conservas.', 1),
+(10, 'Snacks', 'Galletas, papas fritas, chocolates, caramelos, frutos secos.', 1),
+(11, 'Limpieza', 'Detergentes, lejía, esponjas, jabón, limpiavidrios, desinfectantes.', 1),
+(12, 'Cuidado personal', 'Shampoo, jabón, crema dental, papel higiénico, pañales.', 1),
+(13, 'Panadería', 'Pan, bollos, pasteles, bizcochos, tortas, panetones.', 1),
+(14, 'Verduras y Frutas', 'Productos frescos como plátanos, manzanas, papas, cebolla.', 1),
+(15, 'Carnes y Embutidos', 'Pollo, carne de res, salchichas, jamón, chorizos.', 1),
+(16, 'Congelados', 'Helados, productos congelados listos para cocinar.', 1);
 
 -- --------------------------------------------------------
 
@@ -166,20 +183,24 @@ CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
   `user` varchar(50) DEFAULT NULL,
   `password` varchar(50) DEFAULT NULL,
-  `tipo_usuario` varchar(25) DEFAULT NULL,
   `nombre` varchar(30) DEFAULT NULL,
   `apellido` varchar(30) DEFAULT NULL,
-  `foto` varchar(255) DEFAULT NULL
+  `foto` varchar(255) DEFAULT NULL,
+  `token_recuperacion` varchar(100) DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT 1,
+  `id_rol` int(11) NOT NULL DEFAULT 2
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `user`, `password`, `tipo_usuario`, `nombre`, `apellido`, `foto`) VALUES
-(1, 'admin@gmail.com', 'admin123', 'admin', 'Luis Angel', 'Ruiz Diaz', NULL),
-(3, 'abel@gmail.com', '123', 'usuario', 'Abel Emerson', 'Yauri Tapara', NULL),
-(5, 'ermerson@prueba', '123456789', 'usuario', 'Emerson A', 'casimiro llayi', NULL);
+INSERT INTO `usuario` (`id`, `user`, `password`, `nombre`, `apellido`, `foto`, `token_recuperacion`, `estado`, `id_rol`) VALUES
+(1, 'admin@gmail.com', 'admin123', 'Luis', 'Ruiz Díaz', NULL, NULL, 1, 1),
+(3, 'abel@gmail.com', '123', 'Abel Emerson', 'Yauri Taparaaasassa', NULL, NULL, 1, 2),
+(15, 'KevinC@gmail.com', 'kevin2323', 'Kevin Carlos', 'Castillo', NULL, NULL, 1, 2),
+(16, 'daniloSantos@gmail.com', '123', 'danilosaaaa', 'santossssss', NULL, NULL, 1, 2),
+(19, 'pruebaspruebanormal@gmail.com', '123', 'Prueba', 'prueba', NULL, '7d230179bf37516f9dfa152c15ec392fdd979841', 1, 2);
 
 --
 -- Índices para tablas volcadas
@@ -213,6 +234,12 @@ ALTER TABLE `proveedor`
   ADD PRIMARY KEY (`id_proveedor`);
 
 --
+-- Indices de la tabla `rol`
+--
+ALTER TABLE `rol`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `rubro`
 --
 ALTER TABLE `rubro`
@@ -222,7 +249,8 @@ ALTER TABLE `rubro`
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_usuario_rol` (`id_rol`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -232,37 +260,43 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_marca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
 --
 ALTER TABLE `proveedor`
-  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_proveedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de la tabla `rol`
+--
+ALTER TABLE `rol`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `rubro`
 --
 ALTER TABLE `rubro`
-  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_rubro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Restricciones para tablas volcadas
@@ -280,6 +314,12 @@ ALTER TABLE `categoria`
 ALTER TABLE `producto`
   ADD CONSTRAINT `fk_producto_categoria` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`),
   ADD CONSTRAINT `fk_producto_proveedor` FOREIGN KEY (`id_proveedor`) REFERENCES `proveedor` (`id_proveedor`);
+
+--
+-- Filtros para la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_usuario_rol` FOREIGN KEY (`id_rol`) REFERENCES `rol` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
