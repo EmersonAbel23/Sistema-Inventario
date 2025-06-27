@@ -1,7 +1,14 @@
 
-  <div class="dropdown">
+<div class="dropdown d-flex align-items-center">
+  
+ 
+  <div class="me-3 text-white" style="font-weight: bold;">
+    <?php require("../Dashboard/reloj.php"); ?>
+  </div>
+    
     <a class="text-white text-decoration-none dropdown-toggle d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown">
-      <img src="../imagenes/default.png" alt="Usuario" class="rounded-circle me-2" width="32" height="32">
+   
+    <img src="../imagenes/default.png" alt="Usuario" class="rounded-circle me-2" width="32" height="32">
       <span><?php echo $_SESSION['nombre'] ?? 'Usuario'; ?></span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end">
