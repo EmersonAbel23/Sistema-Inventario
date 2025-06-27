@@ -1,243 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Red</title>
-    <script src="https://kit.fontawesome.com/e83c881c90.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="icon" type="image/png" href="img/logo.png">
-</head>
+  <meta charset="UTF-8">
+  <title>MiniMarket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="estilos.css">
+<link rel="shortcut icon" href="login/img/logotipoMinired.JPG" type="image/x-icon">
+  <!-- Bootstrap CSS + Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
+</head>
 <body>
 
-    <header>
-        <a href="#" class="logo">MINI RED</a>
-        <div class="cont cont-menu">
-            <i class="fa-solid fa-bars" id="icono-menu"></i>
-        </div>
-
-        <ul class="navegacion">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobreNosotros">Sobre Nosotros</a></li>
-            <li><a href="#menu">Menu</a></li>
-            <li><a href="#servicios">servicios</a></li>
-            <li><a href="#contactos">contactos</a></li>
-            <li>
-                <a href="login/index.php">
-                    <i class="fa-regular fa-user"  ></i>
-                    Iniciar sesion
-                </a>
-            </li>
-        </ul>
-
-
-        
-    </header>
-
-    <section class="inicio" id="inicio">
-
-        <div class="txt-inicio">
-            <h1>Delicioso y rapido</h1>
-            <h2>¿Hambre? <br> Resuelve eso en un abrir y cerrar de ojos </h2>
-            <a href="#" class="boton">Menu de hoy</a>
-        </div>
-
-
-        <div class="img_inicio">
-            <img src="./img/home.png" alt="imagen principal">
-        </div>
-    </section>
-
-    <section class="sobreNosotros" id="sobreNosotros">
-        <div class="sobreN-img">
-            <img src="./img/about.png" alt="sobre nosotros">
-        </div>
-
-        <div class="sobreN-txt">
-            <span>Sobre Nosotros</span>
-            <h2>dedicados a la rapidez y a la calidad</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae explicabo, quidem id nostrum quos minima.
-            </p>
-            <a href="#" class="boton">Mas Información</a>
-        </div>
-    </section>
-
-    <section class="menu" id="menu">
-        <div class="titulo">
-            <span>Nuestro Menu</span>
-            <h2>La mejor comida rapida al menor precio</h2>
-        </div>
-
-        <div class="contenedor-menu">
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food1.png" alt="comida numero 1">
-                </div>
-
-                <h2>hamburguesa de pollo</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$14.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-        <div class="contenedor-menu">
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food2.png" alt="comida numero 2">
-                </div>
-                <h2>hamburguesa especial</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$20.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-        <div class="contenedor-menu">
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food3.png" alt="comida numero 3">
-                </div>
-                <h2>hamburguesa pollo frito</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$15.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="menu" id="menu">
-        <div class="titulo">
-            <span>Nuestro Menu</span>
-            <h2>La mejor comida rapida al menor precio</h2>
-        </div>
-
-        <div class="contenedor-menu">
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food1.png" alt="comida numero 1">
-                </div>
-
-                <h2>hamburguesa de pollo</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$14.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food2.png" alt="comida numero 2">
-                </div>
-                <h2>hamburguesa especial</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$20.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-        
-            <div class="contenido">
-                <div class="contenido-img">
-                    <img src="./img/food3.png" alt="comida numero 3">
-                </div>
-                <h2>hamburguesa pollo frito</h2>
-                <h3>comida Sabrosa</h3>
-                <span>$15.00</span>
-                <i class="fa-solid fa-cart-shopping"></i>
-            </div>
-
-
-        </div>
-
-    </section>
-
-    <section class="servicios" id="servicios">
-        <div class="titulo">
-            <span>servicios</span>
-            <h2>Rapido y economico, sin comprometer el gusto</h2>
-        </div>
-
-        <div class="contenedor-servicios">
-            <div class="servicios">
-                <img src="./img/s1.png" alt="servicio 1">
-                <h3>Órdenes</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut voluptatum odio ratione ipsa ea
-                    laudantium fugiat. Facere, obcaecati incidunt.</p>
-            </div>
-
-            <div class="servicios">
-                <img src="./img/s2.png" alt="servicio 2">
-                <h3>Envios</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut voluptatum odio ratione ipsa ea
-                    laudantium fugiat. Facere, obcaecati incidunt.</p>
-            </div>
-
-            <div class="servicios">
-                <img src="./img/s3.png" alt="servicio 3">
-                <h3>Entregas</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt ut voluptatum odio ratione ipsa ea
-                    laudantium fugiat. Facere, obcaecati incidunt.</p>
-            </div>
-
-        </div>
-    </section>
-
-    <div class="cta">
-        <h2>Pasion por la comida rapida desde <br> 1995</h2>
-        <a href="#" class="boton">Contáctanos</a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   
+    <div class="container-fluid ps-3">
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+    <img src="login/img/logotipoMinired.JPG" alt="Logo" width="40" height="40" class="me-2 rounded-circle">
+    MiniMarket
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item me-3 position-relative">
+          <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#modalCarrito">
+            <i class="fas fa-shopping-cart fa-lg"></i>
+            <span class="badge bg-danger rounded-pill badge-carrito" id="contadorCarrito">0</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login/index.php">Login</a>
+        </li>
+      </ul>
     </div>
+  </div>
+</nav>
 
-    <section class="contacto">
-        <div class="footer" id="contactos">
-            <div class="contenidoFinal">
-                <div class="links">
-                    <h4>Enlaces de la Página</h4>
+<!-- CARRUSEL -->
+<div class="container mt-5 pt-4">
+  <div id="carouselProductos" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner rounded">
+      <div class="carousel-item active">
+        <img src="img/banner3.webp" class="d-block w-100" alt="Producto 1">
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner2.gif" class="d-block w-100" alt="Producto 2">
+      </div>
+      <div class="carousel-item">
+        <img src="img/banner3.webp" class="d-block w-100" alt="Producto 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselProductos" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselProductos" data-bs-slide="next">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>
 
-                    <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Sobre nosotros</a></li>
-                        <li><a href="#">Menú</a></li>
-                        <li><a href="#">Servicios</a></li>
-                        <li><a href="#">contactos</a></li>
-                    </ul>
-                </div>
-
-
-                <div class="links">
-                    <h4>Nuestros Servicios</h4>
-                    <ul>
-
-                        <li><a href="#">Diseño web</a></li>
-                        <li><a href="#">desarrollo web</a></li>
-                        <li><a href="#">Diseño</a></li>
-                        <li><a href="#">figma</a></li>
-                    </ul>
-                </div>
-
-                <div class="links">
-                    <h4>Información</h4>
-                    <ul>
-
-                        <li><a href="#">Sobre Nosotros</a></li>
-                        <li><a href="#">Información de Envios</a></li>
-                        <li><a href="#">politica de privacidad</a></li>
-                        <li><a href="#">Terminos y condiciones</a></li>
-                    </ul>
-                </div>
-
-                <div class="links">
-                    <h4>Contacto</h4>
-                    <div class="redes">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
-                    </div>
-                </div>
-            </div>
+<!-- CATEGORÍAS -->
+<section class="container mt-5">
+  <h2 class="mb-4 text-center">Categorías</h2>
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-3">
+      <div class="card categoria-card text-center">
+        <img src="img/bebidas/img1.webp" class="card-img-top" alt="Bebidas">
+        <div class="card-body">
+          <h5 class="card-title">Bebidas</h5>
         </div>
-    </section>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card categoria-card text-center">
+        <img src="img/snack/snack.webp" class="card-img-top" alt="Snacks">
+        <div class="card-body">
+          <h5 class="card-title">Snacks</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card categoria-card text-center">
+        <img src="img/lacteo/leche.jfif" class="card-img-top" alt="Lácteos">
+        <div class="card-body">
+          <h5 class="card-title">Lácteos</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card categoria-card text-center">
+        <img src="img/comida/comida.webp" class="card-img-top" alt="Aseo">
+        <div class="card-body">
+          <h5 class="card-title">Comida</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="app.js"></script>
+<!-- PRODUCTOS -->
+<section class="container mt-5 mb-5">
+  <h2 class="mb-4 text-center">Productos Destacados</h2>
+  <div class="row g-4 justify-content-center">
+    <div class="col-md-3">
+      <div class="card producto-card">
+        <img src="img/bebidas/gaseoa1L.webp" class="card-img-top" alt="Producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Coca Cola 1.5L</h5>
+          <p class="card-text">S/. 5.00</p>
+          <button class="btn btn-agregar w-100" onclick="agregarAlCarrito('Coca Cola 1.5L', 5.00)">Agregar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card producto-card">
+        <img src="img/lacteo/lecheTarro.jfif" class="card-img-top" alt="Producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Leche Gloria</h5>
+          <p class="card-text">S/. 3.50</p>
+          <button class="btn btn-agregar w-100" onclick="agregarAlCarrito('Leche Gloria', 3.50)">Agregar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card producto-card">
+        <img src="img/papela.jfif" class="card-img-top" alt="Producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Papel Higiénico x4</h5>
+          <p class="card-text">S/. 8.00</p>
+          <button class="btn btn-agregar w-100" onclick="agregarAlCarrito('Papel Higiénico x4', 8.00)">Agregar</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card producto-card">
+        <img src="img/snack/oreo.jfif" class="card-img-top" alt="Producto">
+        <div class="card-body text-center">
+          <h5 class="card-title">Galletas Oreo</h5>
+          <p class="card-text">S/. 2.00</p>
+          <button class="btn btn-agregar w-100" onclick="agregarAlCarrito('Galletas Oreo', 2.00)">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL DEL CARRITO -->
+<div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalCarritoLabel"><i class="fas fa-shopping-cart me-2"></i>Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <ul class="list-group" id="listaCarrito">
+          <!-- Aquí se agregan productos dinámicamente -->
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <strong>Total: S/. <span id="totalCarrito">0.00</span></strong>
+        <button class="btn btn-success">Pagar</button>
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  let carrito = [];
+  let total = 0;
+
+  function agregarAlCarrito(nombre, precio) {
+    carrito.push({ nombre, precio });
+    total += precio;
+    actualizarCarrito();
+  }
+
+  function actualizarCarrito() {
+    const lista = document.getElementById("listaCarrito");
+    const totalSpan = document.getElementById("totalCarrito");
+    const contador = document.getElementById("contadorCarrito");
+
+    lista.innerHTML = "";
+    carrito.forEach((producto, index) => {
+      const item = document.createElement("li");
+      item.className = "list-group-item d-flex justify-content-between align-items-center";
+      item.innerHTML = `
+        ${producto.nombre} - S/. ${producto.precio.toFixed(2)}
+        <button class="btn btn-sm btn-danger" onclick="eliminarDelCarrito(${index})"><i class="fas fa-trash"></i></button>
+      `;
+      lista.appendChild(item);
+    });
+
+    totalSpan.textContent = total.toFixed(2);
+    contador.textContent = carrito.length;
+  }
+
+  function eliminarDelCarrito(index) {
+    total -= carrito[index].precio;
+    carrito.splice(index, 1);
+    actualizarCarrito();
+  }
+</script>
+
 </body>
-
 </html>
