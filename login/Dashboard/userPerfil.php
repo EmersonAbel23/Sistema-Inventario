@@ -26,76 +26,62 @@
 </div>
   <br>
 
-  <!-- Contenedor centrado -->
-  <div class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="card shadow-lg" style="max-width: 600px; width: 100%;">
-      <div class="card-body">
-        <h4 class="card-title text-center mb-4">Perfil</h4>
+<div class="container mt-4">
+  <div class="row">
+    <!-- Perfil Izquierda -->
+    <div class="col-md-4 mb-4">
+      <div class="card text-center shadow-sm">
+        <div class="card-body">
+          <img src="https://i.imgur.com/2zA4s1t.png" alt="Avatar" class="rounded-circle mb-2" width="100">
+          <h5 class="card-title">Emerson Abel Yauri Tapara</h5>
+          <p class="text-muted">SL75599888@idat.pe</p>
+          <p class="text-muted">SL75599888</p>
+          <hr>
+          <p><strong>Programa de estudios:</strong><br> Desarrollo de Sistemas de Información</p>
+          <p><strong>Campus:</strong><br> San Juan de Lurigancho</p>
+          <p><strong>Periodo académico:</strong><br> Cuarto Periodo Académico</p>
+        </div>
+      </div>
+    </div>
 
-        <div class="text-center mb-4">
-          <div style="position: relative; display: inline-block;">
-            <!-- Imagen de perfil -->
-            <img src="../imagenes/default.png" class="rounded-circle" width="100" height="100" alt="Foto de perfil" id="previewFoto">
-            
-            <!-- Botón verde "+" -->
-            <label for="inputFoto" style="position: absolute; bottom: 0; right: 0; transform: translate(30%, 30%); cursor: pointer;">
-              <div class="btn btn-success rounded-circle d-flex justify-content-center align-items-center" style="width: 30px; height: 30px;">
-                <i class="fas fa-plus text-white"></i>
-              </div>
-            </label>
+    <!-- Datos Personales Derecha -->
+    <div class="col-md-8">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <ul class="nav nav-tabs mb-3">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Datos personales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">Documentación</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-muted" href="#">Contraseña</a>
+            </li>
+          </ul>
 
-            <!-- Input oculto -->
-            <input type="file" id="inputFoto" name="foto" accept="image/*" style="display: none;">
+          <p><strong>Nombres completos:</strong><br> Emerson Abel Yauri Tapara</p>
+          <p><strong>Sexo:</strong><br> Hombre</p>
+          <p><strong>DNI:</strong><br> 75599888</p>
+          <p><strong>Fecha de nacimiento:</strong><br> 30/09/2001</p>
+
+          <div class="alert alert-info mt-4">
+            <i class="fas fa-info-circle me-2"></i>
+            Si los datos que proporcionaste no son correctos, por favor, ponte en contacto con nuestra central telefónica llamando al #, opción 2 o vía WhatsApp al 
+            <a href="https://wa.me/51919498300" target="_blank">919 498 300</a>. También puedes corregirlos a través del trámite 
+            <strong>"Modificación o actualización de datos personales"</strong>. Haz clic 
+            <a href="#" class="alert-link">aquí</a>.
           </div>
         </div>
-
-        <form>
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label class="form-label">Nombre</label>
-              <input type="text" class="form-control" placeholder="Nombre">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Apellido</label>
-              <input type="text" class="form-control" placeholder="Apellido">
-            </div>
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Correo electrónico</label>
-            <input type="email" class="form-control" placeholder="correo@ejemplo.com">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Teléfono</label>
-            <input type="text" class="form-control" placeholder="Número de teléfono">
-          </div>
-
-          <div class="mb-3">
-            <label class="form-label">Dirección</label>
-            <input type="text" class="form-control" placeholder="Dirección">
-          </div>
-
-          <div class="row mb-3">
-            <div class="col-md-6">
-              <label class="form-label">Ciudad</label>
-              <input type="text" class="form-control" placeholder="Ciudad">
-            </div>
-            <div class="col-md-6">
-              <label class="form-label">Edad</label>
-              <input type="text" class="form-control" placeholder="50">
-            </div>
-          </div>
-
-           <div class="d-flex justify-content-end gap-2">
-            <button type="submit" class="btn btn-success">Guardar Perfil</button>
-            <button type="reset" class="btn btn-secondary">Cancelar</button>
-          </div> 
-        </form>
       </div>
     </div>
   </div>
 </div>
+
+
 
 <!-- Scripts -->
 <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -8,6 +8,9 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="dasboard.css">
   <link rel="shortcut icon" href="../img/logotipoMinired.JPG" type="image/x-icon">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
 </head>
 <body>
 
@@ -25,8 +28,15 @@
 </div>
 
 <div class="container mt-5">
-  <h3 class="mb-4"><i class="fas fa-layer-group me-2"></i> Rubros</h3>
-  <h5 class="text-muted mb-4 ms-4">Lista de rubros registrados</h5>
+  <div class="d-flex justify-content-between align-items-center mb-4">  
+    <h3 class="mb-4"><i class="fas fa-layer-group me-2"></i> Rubros</h3>
+      <h5 class="text-muted mb-4 ms-4">Lista de rubros registrados</h5>
+      <div>
+          <button class="btn btn-danger" onclick="exportarRubrosPDF()">
+          <i class="fas fa-boxes me-2"></i> Exportar PDF
+        </button>
+      </div>
+  </div>
 
   <!-- BUSCADOR -->
   <div class="mb-3">
@@ -155,6 +165,35 @@
       fila.style.display = nombre.includes(filtro) ? "" : "none";
     });
   });
+</script>
+
+<script>
+  async function exportarRubrosPDF() {
+    const { jsPDF } = window.jspdf;
+
+    const tabla = document.querySelector(".table-responsive"); 
+        const canvas = await html2canvas(tabla, {
+      scale: 2,
+      backgroundColor: "#ffffff"
+    });
+
+    const imgData = canvas.toDataURL("image/png");
+    const pdf = new jsPDF("p", "mm", "a4");
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+
+    const imgProps = pdf.getImageProperties(imgData);
+    const imgWidth = pageWidth - 20;
+    const imgHeight = (imgProps.height * imgWidth) / imgProps.width;
+
+    pdf.setFontSize(16);
+    pdf.setTextColor(40);
+    pdf.text("Rubros - Mini-Red", 10, 15);
+
+    pdf.addImage(imgData, "PNG", 10, 20, imgWidth, imgHeight);
+    pdf.save("rubros.pdf");
+  }
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
