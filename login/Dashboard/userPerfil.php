@@ -26,16 +26,26 @@
 </div>
   <br>
 
+
+
 <div class="container mt-4">
   <div class="row">
     <!-- Perfil Izquierda -->
     <div class="col-md-4 mb-4">
       <div class="card text-center shadow-sm">
         <div class="card-body">
-          <img src="https://i.imgur.com/2zA4s1t.png" alt="Avatar" class="rounded-circle mb-2" width="100">
-          <h5 class="card-title">Emerson Abel Yauri Tapara</h5>
-          <p class="text-muted">SL75599888@idat.pe</p>
-          <p class="text-muted">SL75599888</p>
+          <img src="../imagenes/default.png" alt="Avatar" class="rounded-circle mb-2" width="100">
+           <?php
+              if (session_status() === PHP_SESSION_NONE) {
+            session_start(); 
+              }
+            $nombre = isset($_SESSION['nombre']) ? $_SESSION['nombre'] : 'Usuario';
+            $apellido = isset($_SESSION['apellido']) ? $_SESSION['apellido'] : '';
+            $correo = isset($_SESSION['user']) ? $_SESSION['user'] : '';
+            ?>
+          <h5 class="card-title"> <?php echo $nombre . ' ' . $apellido; ?></h5>
+          <p class="text-muted"><?php echo $correo; ?></p>
+          <p class="text-muted">Administrador</p>
           <hr>
           <p><strong>Programa de estudios:</strong><br> Desarrollo de Sistemas de Información</p>
           <p><strong>Campus:</strong><br> San Juan de Lurigancho</p>
@@ -44,43 +54,93 @@
       </div>
     </div>
 
-    <!-- Datos Personales Derecha -->
+    <!-- Derecha con pestañas -->
     <div class="col-md-8">
       <div class="card shadow-sm">
         <div class="card-body">
-          <ul class="nav nav-tabs mb-3">
+          <!-- Tabs -->
+          <ul class="nav nav-tabs mb-3" id="tabs">
             <li class="nav-item">
-              <a class="nav-link active" href="#">Datos personales</a>
+              <a class="nav-link active" data-tab="personal" href="#">Datos personales</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-muted" href="#">Contacto</a>
+              <a class="nav-link" data-tab="contacto" href="#">Contacto</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-muted" href="#">Documentación</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-muted" href="#">Contraseña</a>
+              <a class="nav-link" data-tab="contrasena" href="#">Contraseña</a>
             </li>
           </ul>
 
-          <p><strong>Nombres completos:</strong><br> Emerson Abel Yauri Tapara</p>
-          <p><strong>Sexo:</strong><br> Hombre</p>
-          <p><strong>DNI:</strong><br> 75599888</p>
-          <p><strong>Fecha de nacimiento:</strong><br> 30/09/2001</p>
+          <!-- Contenido: Datos personales -->
+          <div id="tab-personal">
+            <p><strong>Nombres completos:</strong><br> Emerson Abel Yauri Tapara</p>
+            <p><strong>Sexo:</strong><br> Hombre</p>
+            <p><strong>DNI:</strong><br> 75599888</p>
+            <p><strong>Fecha de nacimiento:</strong><br> 30/09/2001</p>
 
-          <div class="alert alert-info mt-4">
-            <i class="fas fa-info-circle me-2"></i>
-            Si los datos que proporcionaste no son correctos, por favor, ponte en contacto con nuestra central telefónica llamando al #, opción 2 o vía WhatsApp al 
-            <a href="https://wa.me/51919498300" target="_blank">919 498 300</a>. También puedes corregirlos a través del trámite 
-            <strong>"Modificación o actualización de datos personales"</strong>. Haz clic 
-            <a href="#" class="alert-link">aquí</a>.
+            <div class="alert alert-info mt-4">
+              <i class="fas fa-info-circle me-2"></i>
+              Si los datos que proporcionaste no son correctos, ponte en contacto con nuestra central llamando al #, opción 2 o vía WhatsApp 
+              <a href="https://wa.me/51919498300" target="_blank">919 498 300</a>. También puedes corregirlos a través del trámite 
+              <strong>"Modificación o actualización de datos personales"</strong>. Haz clic <a href="#">aquí</a>.
+            </div>
+          </div>
+
+          <!-- Contenido: Contacto -->
+          <div id="tab-contacto" class="d-none">
+            <p><strong>Teléfono personal:</strong><br> 987654321</p>
+            <p><strong>Correo institucional:</strong><br> SL75599888@idat.pe</p>
+            <p><strong>Correo alternativo:</strong><br> emerson.yauri@gmail.com</p>
+            <p><strong>Dirección:</strong><br> Av. Universitaria 1234, Lima, Perú</p>
+          </div>
+
+          <!-- Contenido: Contraseña -->
+          <div id="tab-contrasena" class="d-none">
+            <form>
+              <div class="mb-3">
+                <label for="actual" class="form-label">Contraseña actual</label>
+                <input type="password" class="form-control" id="actual" required>
+              </div>
+              <div class="mb-3">
+                <label for="nueva" class="form-label">Nueva contraseña</label>
+                <input type="password" class="form-control" id="nueva" required>
+              </div>
+              <div class="mb-3">
+                <label for="confirmar" class="form-label">Confirmar nueva contraseña</label>
+                <input type="password" class="form-control" id="confirmar" required>
+              </div>
+              <button type="submit" class="btn btn-primary">Actualizar contraseña</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 
+<!-- JS para manejar pestañas -->
+<script>
+  const tabs = document.querySelectorAll('#tabs .nav-link');
+  const contents = {
+    personal: document.getElementById('tab-personal'),
+    contacto: document.getElementById('tab-contacto'),
+    contrasena: document.getElementById('tab-contrasena')
+  };
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', e => {
+      e.preventDefault();
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      for (const key in contents) {
+        contents[key].classList.add('d-none');
+      }
+      contents[tab.dataset.tab].classList.remove('d-none');
+    });
+  });
+</script>
 
 
 <!-- Scripts -->

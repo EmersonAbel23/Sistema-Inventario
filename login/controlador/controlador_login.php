@@ -8,17 +8,18 @@ if (!empty($_POST["btningresar"])) {
         $password = $_POST["password"];
 
         // Utilizar consultas preparadas para prevenir inyecciones SQL
-        $stmt = $conexion->prepare("SELECT id, nombre, apellido FROM usuario WHERE user=? AND password=? LIMIT 1");
+        $stmt = $conexion->prepare("SELECT id,user, nombre, apellido FROM usuario WHERE user=? AND password=? LIMIT 1");
         $stmt->bind_param("ss", $usuario, $password);
         $stmt->execute();
         $stmt->store_result();
 
         if ($stmt->num_rows == 1) {
-            $stmt->bind_result($id, $nombre, $apellido);
+            $stmt->bind_result($id, $user ,$nombre, $apellido);
             $stmt->fetch();
 
             // Iniciar sesión
             $_SESSION["id"] = $id;
+            $_SESSION["user"] = $user; 
             $_SESSION["nombre"] = $nombre;
             $_SESSION["apellido"] = $apellido;
 
