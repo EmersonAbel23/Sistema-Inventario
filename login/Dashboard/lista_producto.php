@@ -27,14 +27,26 @@
 </div>
   
 
-  <div class="container mt-5">
-  <h3 class="mb-4"><i class="fas fa-box me-2"></i>Productos</h3>
-  <h5 class="text-muted mb-4 ms-4">Lista de Producto</h5>
+<div class="container mt-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-4"><i class="fas fa-box me-2"></i>Productos</h3>
+    <h5 class="text-muted mb-4 ms-4">Lista de Producto</h5>
+    <!-- stock-->
+    <div>
+      <button type="button" class="btn btn-primary" id="btnStock">
+        <i class="fas fa-boxes me-2"></i> Stock
+      </button>
+    </div>
+  </div>
+
 
   <!-- BUSCADOR -->
   <div class="mb-3">
     <input type="text" class="form-control" id="buscador" placeholder="Buscar producto...">
   </div>
+
+
+
 
   <!-- TABLA -->
   <div class="table-responsive">
@@ -61,13 +73,19 @@
   $resultado = $conexion->query($sql);
   $contador = 1;
 
+
+
+
+
   if ($resultado && $resultado->num_rows > 0) {
       while ($fila = $resultado->fetch_assoc()) {
           echo "<tr>";
           echo "<td>" . $contador++ . "</td>";
           echo "<td>" . htmlspecialchars($fila['nombre']) . "</td>";
           echo "<td>" . htmlspecialchars($fila['precio']) . "</td>";
-          echo "<td>" . htmlspecialchars($fila['stock']) . "</td>";
+           $stock = (int) $fila['stock'];
+          $claseStock = $stock < 7 ? 'text-danger fw-bold' : '';
+          echo "<td class='$claseStock'>" . htmlspecialchars($stock) . "</td>";
           echo "<td>" . htmlspecialchars($fila['descripcion']) . "</td>";
           echo "<td>" . htmlspecialchars($fila['codigo_prod']) . "</td>";
           if (!empty($fila['foto'])) {
@@ -286,6 +304,20 @@ function cargarDatosProducto(producto) {
 
 
 
+<script>
+document.getElementById("btnStock").addEventListener("click", function () {
+  const filas = document.querySelectorAll("#tablaCategorias tbody tr");
+
+  filas.forEach(fila => {
+    const stock = parseInt(fila.cells[3].textContent); 
+    if (stock < 10) {
+      fila.style.display = "";
+    } else {
+      fila.style.display = "none";
+    }
+  });
+});
+</script>
 
 
 
@@ -299,7 +331,9 @@ document.getElementById("buscador").addEventListener("keyup", function () {
 
   filas.forEach(fila => {
     let nombre = fila.cells[1].textContent.toLowerCase();
+    let codigo = fila.cells[5].textContent.toLowerCase();
     fila.style.display = nombre.includes(filtro) ? "" : "none";
+     fila.style.display = codigo.includes(filtro) ? "" : "none";
   });
 });
 </script>
