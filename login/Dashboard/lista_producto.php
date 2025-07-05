@@ -82,7 +82,7 @@
           echo "<tr>";
           echo "<td>" . $contador++ . "</td>";
           echo "<td>" . htmlspecialchars($fila['nombre']) . "</td>";
-          echo "<td>" . htmlspecialchars($fila['precio']) . "</td>";
+         echo "<td>" . htmlspecialchars(number_format($fila['precio'], 2)) . "</td>";
            $stock = (int) $fila['stock'];
           $claseStock = $stock < 7 ? 'text-danger fw-bold' : '';
           echo "<td class='$claseStock'>" . htmlspecialchars($stock) . "</td>";
@@ -170,7 +170,7 @@
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold">Precio</label>
-              <input type="number" class="form-control" name="precio" id="editar_precio" required>
+              <input type="number" class="form-control" name="precio" id="editar_precio" step="0.01" min="0" required>
             </div>
             <div class="col-md-3">
               <label class="form-label fw-bold">Stock</label>

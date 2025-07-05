@@ -42,7 +42,7 @@ function desactivarProducto($conexion) {
 
 function agregarProducto($conexion) {
     $nombre = $_POST["nombre"];
-    $precio = $_POST["precio"];
+    $precio = floatval($_POST["precio"]);
     $stock = $_POST["stock"];
     $descripcion = $_POST["descripcion"];
     $codigo = $_POST["codigo_prod"];
@@ -71,7 +71,7 @@ function agregarProducto($conexion) {
         die("Error en la preparación: " . $conexion->error);
     }
 
-    $stmt->bind_param("siissiis", $nombre, $precio, $stock, $descripcion, $codigo, $id_proveedor, $id_categoria, $foto);
+    $stmt->bind_param("sdissiis", $nombre, $precio, $stock, $descripcion, $codigo, $id_proveedor, $id_categoria, $foto);
 
     if ($stmt->execute()) {
         header("Location: ../Dashboard/producto.php?success=1");

@@ -41,10 +41,10 @@
           <label class="form-label fw-bold">Nombre <i class="fas fa-pen-to-square small"></i></label>
           <input type="text" class="form-control" name="nombre" required>
         </div>
-        <div class="col-md-3">
-          <label class="form-label fw-bold">Precio</label>
-          <input type="number" class="form-control" name="precio" required>
-        </div>
+       <div class="col-md-3">
+        <label class="form-label fw-bold">Precio</label>
+        <input type="number" class="form-control" name="precio" step="0.01" min="0" required>
+      </div>
         <div class="col-md-3">
           <label class="form-label fw-bold">Stock</label>
           <input type="number" class="form-control" name="stock">
