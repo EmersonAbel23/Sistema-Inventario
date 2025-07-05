@@ -32,6 +32,11 @@
  <h3 class="text-muted mb-4 ms-4">Categorías</h3>
 
 
+
+
+
+ 
+
 <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 <script>
   document.querySelectorAll('[data-bs-toggle="collapse"]').forEach(link => {

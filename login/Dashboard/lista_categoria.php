@@ -68,7 +68,7 @@ if ($resultado && $resultado->num_rows > 0) {
         echo "<td>" . htmlspecialchars($fila['nombre_rubro']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['nombre_categoria']) . "</td>";
         echo "<td>" . htmlspecialchars($fila['descripcion_categoria']) . "</td>";
-        echo '<td><button class="btn btn-primary btn-sm"><i class="fas fa-boxes-stacked"></i></button></td>';
+        echo '<td> <a href="producto_categoria.php" <button class="btn btn-primary btn-sm"><i class="fas fa-boxes-stacked"></i></button> </a> </td>';
         echo '<td><button class="btn btn-success btn-sm btn-actualizar" data-id="' . $fila['id_categoria'] . '"><i class="fas fa-rotate"></i></button></td>';
         echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id_categoria'] . '"><i class="fas fa-trash"></i></button></td>';
 
