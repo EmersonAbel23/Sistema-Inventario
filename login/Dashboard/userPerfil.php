@@ -47,9 +47,9 @@
           <p class="text-muted"><?php echo $correo; ?></p>
           <p class="text-muted">Administrador</p>
           <hr>
-          <p><strong>Programa de estudios:</strong><br> Desarrollo de Sistemas de Información</p>
+          <p><strong>Rol del usuario:</strong><br>Adminsitrador del sistema de inventario</p>
           <p><strong>Campus:</strong><br> San Juan de Lurigancho</p>
-          <p><strong>Periodo académico:</strong><br> Cuarto Periodo Académico</p>
+          <p><strong>Empresa:</strong><br> Mini-Red</p>
         </div>
       </div>
     </div>
@@ -80,8 +80,7 @@
 
             <div class="alert alert-info mt-4">
               <i class="fas fa-info-circle me-2"></i>
-              Si los datos que proporcionaste no son correctos, ponte en contacto con nuestra central llamando al #, opción 2 o vía WhatsApp 
-              <a href="https://wa.me/51919498300" target="_blank">919 498 300</a>. También puedes corregirlos a través del trámite 
+              Si los datos que proporcionaste no son correctos, por favor comunícate con nuestro equipo de soporte de Mini Red - Sistema de Inventario llamando al 📞 912699828, opción 2, o vía WhatsApp al 📲 912 699 828 . También puedes actualizarlos por el administrador desde su panel.
               <strong>"Modificación o actualización de datos personales"</strong>. Haz clic <a href="#">aquí</a>.
             </div>
           </div>

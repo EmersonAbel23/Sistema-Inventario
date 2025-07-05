@@ -49,10 +49,16 @@ $(document).ready(function(){
   <?php require("./partials/nav.php") ?>
 </div>
 
+
 <div class="content">
-  <div class="header-bar">
-    Categoría / Producto 
+  <div class="d-flex justify-content-between align-items-center px-4 py-3" style="background-color: #343a40; color: white;">
+    <div>
+      <h4 class="mb-0">Categoría / Producto </h4>
+    </div>
+    <?php require("./partials/topbar.php") ?>
   </div>
+</div>
+  
 
   <div class="page-content">
     <h3 class="mb-4"><i class="fas fa-box me-2"></i> Categoría por Producto</h3>
