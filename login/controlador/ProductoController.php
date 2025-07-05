@@ -49,6 +49,7 @@ function agregarProducto($conexion) {
     $id_proveedor = $_POST["id_proveedor"];
     $id_categoria = $_POST["id_categoria"];
     $foto = null;
+    
 
     // Manejar la imagen
     if (isset($_FILES["foto"]) && $_FILES["foto"]["error"] === 0) {
