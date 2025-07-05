@@ -7,7 +7,7 @@ if (!empty($_POST["btningresar"])) {
         $usuario = $_POST["usuario"];
         $password = $_POST["password"];
 
-        // Utilizar consultas preparadas para prevenir inyecciones SQL
+        // consultas preparadas para prevenir inyecciones SQL
         $stmt = $conexion->prepare("SELECT id,user, nombre, apellido FROM usuario WHERE user=? AND password=? LIMIT 1");
         $stmt->bind_param("ss", $usuario, $password);
         $stmt->execute();
@@ -23,7 +23,7 @@ if (!empty($_POST["btningresar"])) {
             $_SESSION["nombre"] = $nombre;
             $_SESSION["apellido"] = $apellido;
 
-            // Redirigir a la página de inicio
+            // Redirigir a la pagina de inicio
             header("location: Dashboard/index.php");
            
             exit(); // Importante para evitar ejecución adicional después de la redirección

@@ -73,6 +73,10 @@ $resultadoProveedores = $conexion->query($sqlProveedores);
 // Obtener categorías
 $sqlCategorias = "SELECT id_categoria, nombre_categoria FROM categoria WHERE estado = 1";
 $resultadoCategorias = $conexion->query($sqlCategorias);
+
+// Obtener Marca
+$sqlMarca = "SELECT id_marca, nombre_marca FROM marca WHERE estado = 1";
+$resultadoMarca = $conexion->query($sqlMarca);
 ?> 
 
    <div class="row mb-3">
@@ -100,13 +104,29 @@ $resultadoCategorias = $conexion->query($sqlCategorias);
           </select>
         </div>
 
+
 <div class="row mb-3">
+  
     <!-- Campo de imagen -->
     <div class="col-md-6">
+     <br>
       <label class="form-label fw-bold">Foto del producto</label>
       <input type="file" class="form-control" name="foto" accept="image/*">
       <small class="form-text text-muted">Formatos permitidos: JPG, PNG, GIF.</small>
     </div>
+
+    <div class="col-md-6">
+      <br>
+          <label class="form-label fw-bold">Marca</label>
+          <select class="form-select" name="id_marca" required>
+            <option value="">Selecciona una marca</option>
+            <?php while ($fila = $resultadoMarca->fetch_assoc()): ?>
+              <option value="<?= $fila['id_marca'] ?>">
+                <?= htmlspecialchars($fila['nombre_marca']) ?>
+              </option>
+            <?php endwhile; ?>
+          </select>
+        </div>
   </div>
 
       <div class="text-center">
