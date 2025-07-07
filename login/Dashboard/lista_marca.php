@@ -58,7 +58,7 @@
               while ($fila = $resultado->fetch_assoc()) {
                   echo "<tr>";
                   echo "<td>" . $contador++ . "</td>";
-                  echo "<td>" . htmlspecialchars($fila['nombre']) . "</td>";
+                  echo "<td>" . htmlspecialchars($fila['nombre_marca']) . "</td>";
                   echo "<td>" . htmlspecialchars($fila['descripcion']) . "</td>";
                   echo '<td><button class="btn btn-success btn-sm btn-actualizar" data-id="' . $fila['id_marca'] . '"><i class="fas fa-rotate"></i></button></td>';
                   echo '<td><button class="btn btn-danger btn-sm btn-eliminar" data-id="' . $fila['id_marca'] . '"><i class="fas fa-trash"></i></button></td>';
