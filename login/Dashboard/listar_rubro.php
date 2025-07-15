@@ -131,6 +131,27 @@
     </div>
   </div>
 </div>
+ 
+
+<!-- Modal Confirmar Actualización -->
+<div class="modal fade" id="modalConfirmarActualizacion" tabindex="-1" aria-labelledby="confirmarLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <i class="fas fa-question-circle fa-3x text-warning mb-3"></i>
+        <h5 class="modal-title mb-2" id="confirmarLabel">¿Confirmar actualización?</h5>
+        <p class="text-muted">¿Estás seguro de que deseas actualizar este rubro?</p>
+        <div class="d-flex justify-content-center gap-3">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="enviarFormulario()">Sí, actualizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 <script>
   document.querySelectorAll(".btn-actualizar").forEach(btn => {
@@ -148,6 +169,7 @@
     });
   });
 
+  
   document.querySelectorAll(".btn-eliminar").forEach(btn => {
     btn.addEventListener("click", function () {
       const id = this.dataset.id;
@@ -166,6 +188,26 @@
     });
   });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <script>
   async function exportarRubrosPDF() {

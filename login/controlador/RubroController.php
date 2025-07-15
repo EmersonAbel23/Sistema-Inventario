@@ -95,7 +95,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $conexion->close();
 
     if ($resultado === true) {
-        header("Location: $redireccion?success=1");
+        // $redireccion?success=1
+        header("Location:../Dashboard/listar_rubro.php");
         exit;
     } else {
         echo $resultado;

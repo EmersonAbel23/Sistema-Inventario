@@ -42,7 +42,7 @@
         <tr>
           <th>#</th>
           <th>Rubro</th>
-          <th>Nombre</th>
+          <th>C ategoria</th>
           <th>Descripción</th>
           <th>Productos</th>
           <th>Actualizar</th>

@@ -98,11 +98,11 @@
               <input type="hidden" name="id_marca" id="editar_id_marca">
               <div class="mb-3">
                 <label for="editar_nombre_marca" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre_categoria" id="editar_nombre_marca" required>
+                <input type="text" class="form-control" name="nombre_marca" id="editar_nombre_marca" required>
               </div>
               <div class="mb-3">
                 <label for="editar_descripcion_marca" class="form-label">Descripción</label>
-                <textarea class="form-control" name="descripcion_categoria" id="editar_descripcion_marca" rows="3"></textarea>
+                <textarea class="form-control" name="descripcion_marca" id="editar_descripcion_marca" rows="3"></textarea>
               </div>
             </div>
             <div class="modal-footer">
@@ -112,6 +112,20 @@
         </div>
       </div>
     </div>
+<!-- Modal Marca Actualizada -->
+<div class="modal fade" id="modalMarcaActualizada" tabindex="-1" aria-labelledby="modalMarcaActualizadaLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center">
+      <div class="modal-body">
+        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+        <h5 class="modal-title mb-2" id="modalMarcaActualizadaLabel">¡Marca actualizada!</h5>
+        <p class="text-muted">La información de la marca se actualizó correctamente.</p>
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -191,6 +205,13 @@
     });
   });
 </script>
-
+<?php if (isset($_GET["success"]) && $_GET["success"] === "actualizada"): ?>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const modal = new bootstrap.Modal(document.getElementById('modalMarcaActualizada'));
+    modal.show();
+  });
+</script>
+<?php endif; ?>
 </body>
 </html>
