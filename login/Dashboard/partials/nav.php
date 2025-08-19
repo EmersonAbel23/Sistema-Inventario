@@ -100,8 +100,8 @@
           <i class="fas fa-chevron-down rotate-icon"></i>
         </a>
         <ul class="collapse list-unstyled submenu" id="entradasSubmenu">
-          <li><a class="nav-link" href="#">Registrar entrada</a></li>
-          <li><a class="nav-link" href="#">Historial de entradas</a></li>
+          <li><a class="nav-link" href="entrada_producto.php">Registrar entrada</a></li>
+          <li><a class="nav-link" href="lista_entrada.php">Historial de entradas</a></li>
         </ul>
       </li>
 
@@ -111,13 +111,13 @@
           <i class="fas fa-chevron-down rotate-icon"></i>
         </a>
         <ul class="collapse list-unstyled submenu" id="salidasSubmenu">
-          <li><a class="nav-link" href="#">Registrar salida</a></li>
-          <li><a class="nav-link" href="#">Historial de salidas</a></li>
+          <li><a class="nav-link" href="salida_producto.php">Registrar salida</a></li>
+          <li><a class="nav-link" href="lista_salida.php">Historial de salidas</a></li>
         </ul>
       </li>
 
       <li class="nav-item">
-        <a href="#" class="nav-link"><i class="fas fa-screwdriver-wrench me-2"></i> Configuración</a>
+        <a href="venta.php" class="nav-link"><i class="fa-solid fa-cart-shopping"></i> venta</a>
       </li>
 
     </ul>

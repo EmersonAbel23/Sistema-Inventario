@@ -68,9 +68,9 @@ function agregarProducto($conexion) {
 
     $stmt = $conexion->prepare("INSERT INTO producto (nombre, precio, stock, descripcion, codigo_prod, id_proveedor, id_categoria, foto) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     if (!$stmt) {
-        die("Error en la preparación: " . $conexion->error);
+        die("Error en la preparación: " . $conexion->error);  
     }
-
+  
     $stmt->bind_param("sdissiis", $nombre, $precio, $stock, $descripcion, $codigo, $id_proveedor, $id_categoria, $foto);
 
     if ($stmt->execute()) {
