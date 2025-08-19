@@ -87,10 +87,10 @@
 
           <!-- Contenido: Contacto -->
           <div id="tab-contacto" class="d-none">
-            <p><strong>Teléfono personal:</strong><br> 987654321</p>
-            <p><strong>Correo institucional:</strong><br> SL75599888@idat.pe</p>
+            <p><strong>Teléfono personal:</strong><br> 912699828</p>
+            <p><strong>Correo de trabajo:</strong><br> EmersonAbel@miniRed.com</p>
             <p><strong>Correo alternativo:</strong><br> emerson.yauri@gmail.com</p>
-            <p><strong>Dirección:</strong><br> Av. Universitaria 1234, Lima, Perú</p>
+            <p><strong>Dirección:</strong><br>  Lima, Perú</p>
           </div>
 
           <!-- Contenido: Contraseña -->
