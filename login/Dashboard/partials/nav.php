@@ -75,8 +75,8 @@
           <i class="fas fa-chevron-down rotate-icon"></i>
         </a>
         <ul class="collapse list-unstyled submenu" id="proveedoresSubmenu">
-          <li><a class="nav-link" href="#">Registrar proveedor</a></li>
-          <li><a class="nav-link" href="#">Lista de proveedores</a></li>
+          <li><a class="nav-link" href="proveedores.php">Registrar proveedor</a></li>
+          <li><a class="nav-link" href="lista_proveedores.php">Lista de proveedores</a></li>
         </ul>
       </li>
 

@@ -70,6 +70,7 @@
 
       <!-- Rubros -->
       <div class="col-sm-6 col-md-4 col-lg-3">
+        
         <div class="summary-box">
           <i class="fas fa-layer-group"></i>
           <div class="summary-title">Rubros</div>
